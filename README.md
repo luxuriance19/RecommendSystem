@@ -1,4 +1,4 @@
-
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default">
 # RecommendSystem
 Recommend System Implementation
 ### 基于邻域的方法：协同过滤
@@ -20,7 +20,8 @@ LFM最大的缺点是需要训练出用户的隐类向量$p_{u}$和物品的隐�
 解决方案：  
 1、利用新闻链接的内容属性（关键次、类别）得到链接i的内容$y_{i}$，实时收集用户的链接行为，利用这些数据得到链接i的隐含特征向量$q_{i}$.  
 2、利用如下公式预测用户u是否会单机链接i：  
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
+
 $$ r_{ui} = x_{u}^{T}y_{i} + p_{u}^{T}q_{i}$$  
 $x_{u}$是用户向量，根据用户的历史行为记录获得，一天只需要计算一次，$x_{uk}$是用户u对内容特征k的兴趣程度，$y_{i}$是根据物品的内容属性直接生成的。  
 
@@ -43,3 +44,4 @@ $x_{u}$是用户向量，根据用户的历史行为记录获得，一天只需�
 还是停止这次游走，重新从$v_{u}$开始游走。 如果决定继续游走，就从当前节点只想的节点当中按照均匀分布随机选择一个节点作为游走下次经过的节点。这样， 经过很多次随机游走之后，每个物品节点访问的概率会收敛到一个数，最终的推荐列表种物品的权重就是物品节点的访问概率。（类似于马尔科夫状态度，最终收敛）。
 
 $$ PR(v) = \begin{cases} \alpha \sum_{v^{'} \in (v) \alpha \frac{PR(v^{'}}{out(v^{'}} (v \neq v_{u}) \\ (1-\alpha) + \alpha  \frac{PR(v^{'}}{out(v^{'}} (v \eq v_{u}) $$
+</script>
