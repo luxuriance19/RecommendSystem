@@ -1,4 +1,4 @@
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
+
 # RecommendSystem
 Recommend System Implementation
 ### 基于邻域的方法：协同过滤
@@ -20,15 +20,16 @@ LFM最大的缺点是需要训练出用户的隐类向量$p_{u}$和物品的隐�
 解决方案：  
 1、利用新闻链接的内容属性（关键次、类别）得到链接i的内容$y_{i}$，实时收集用户的链接行为，利用这些数据得到链接i的隐含特征向量$q_{i}$.  
 2、利用如下公式预测用户u是否会单机链接i：  
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 $$ r_{ui} = x_{u}^{T}y_{i} + p_{u}^{T}q_{i}$$  
 $x_{u}$是用户向量，根据用户的历史行为记录获得，一天只需要计算一次，$x_{uk}$是用户u对内容特征k的兴趣程度，$y_{i}$是根据物品的内容属性直接生成的。  
 
 ### LFM和CF方法比较：
 1、LFM有学习的过程，CF没有。  
-2、离线计算的空间复杂度CF明显高于LFM。  
-3、离线计算的时间复杂度两者差不多，LFM略高于CF。  
+2、离线计算的空间复杂度CF明显高于LFM。    
+3、离线计算的时间复杂度两者差不多，LFM略高于CF。    
 4、在线实时推荐LFM不是很合适，例如ItemCF如果用户有了新的行为，她的推荐列表就会发生变化，但是LFM必须要重新计算用户对所有物品的兴趣的权重，然后排名。
-所以LFM不适合物品数目非常庞大的系统， 用户行为变更之后，不会马上改变推荐列表。  
+所以LFM不适合物品数目非常庞大的系统， 用户行为变更之后，不会马上改变推荐列表。   
 5、ItemCF的解释性比LFM解释性好。
 
 ### 基于图的模型：（基于邻域的方法可以看成简单模型）  
