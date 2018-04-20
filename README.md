@@ -1,3 +1,4 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 # RecommendSystem
 Recommend System Implementation
 ### 基于邻域的方法：协同过滤
